@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My CV</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: cornflowerblue;
+    }
+    .cv-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      max-width: 1000px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .sidebar {
+      background: #0077cc;
+      color: #fff;
+      padding: 30px 20px;
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .sidebar p {
+      text-align: center;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+    .sidebar h3 {
+      margin-top: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding-bottom: 5px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      font-size: 14px;
+    }
+    .sidebar ul li {
+      margin: 10px 0;
+    }
+    .main {
+      padding: 30px;
+    }
+    .main section {
+      margin-bottom: 20px;
+    }
+    .main h2 {
+      color: #0077cc;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    .main ul {
+      list-style: none;
+      padding: 0;
+    }
+    .main ul li {
+      margin-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      color: black;
+    }
+    .btn {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 10px 20px;
+      background: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    @media (max-width: 768px) {
+      .cv-container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="cv" class="cv-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <img src="/profile.png" alt="Profile Photo" class="profile-pic">
+      <h2>Muhammad Irshad</h2>
+      <p>Expert in computer programming languages </p><hr />
+      <p>Email: wowcoding7@gmail.com</p><hr />
+      <p>Phone: +92 3415019969</p>
+
+      <h3>Skills</h3>
+      <ul>
+          <li><strong>
+          	web development 
+          </strong> (HTML, CSS, JS)</li>
+          <li><strong>
+          	Programming languages
+          </strong>Python (Basic to intermediate level)</li>
+        </ul>
+
+      <h3>Languages</h3>
+      <ul>
+        <li>English</li>
+        <li>Urdu</li>
+        <li>Pashto</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <section>
+        <h2>About Me</h2>
+        <p> I am Muhammad Irshad, a passionate tech enthusiast with background in computer science. I have hands-on experience in web development, python programming and essential computer application like MS word and Excel. I enjoy solving problem by coding and continuously improving my skills by learning new technologies. I work many projects in web development and python.</p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul>
+          
+          <li><strong>
+            middle school :
+          </strong>Welcome public high school bettani (2013 - 2023)</li>
+          <strong>
+          	Marks : 82%
+          </strong>
+          <li>
+          	<hr />
+            <strong>
+              High school:
+            </strong>
+            GDC tajori lakki marwat 
+            (2023 - 2025)
+            
+            
+            
+          </li>
+          <strong>
+          	Marks: 70%
+          </strong>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <ul>
+          <li>
+            Web development
+          </li>
+          <li>
+            Microsoft office
+           
+          </li>
+          <li>
+            Word , Excel,  PowerPoint
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>project</h2>
+        <ul>
+          <li><strong>
+         portfolio websites
+          </strong> (HTML, CSS, JS)</li>
+          <strong>
+          	Python Calculator App
+          </strong>
+          <li>
+          <strong>
+          	Python Quiz App
+          </strong>
+         </li> 
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer & Buttons -->
+  <footer>
+    <button class="btn" onclick="window.print()">Print CV</button>
+    <button class="btn" id="download">Download PDF</button>
+    <p>© 2025 Muhammad Irshad</p>
+  </footer>
+
+  <!-- JS Library for PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    document.getElementById("download").addEventListener("click", () => {
+      const element = document.getElementById("cv");
+      const options = {
+        margin: 0.3,
+        filename: 'Muhammad_Irshad_CV.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().from(element).set(options).save();
+    });
+  </script>
+</body>
+</html>
